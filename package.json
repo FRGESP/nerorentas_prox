@@ -15,10 +15,10 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.43.0",
     "lucide-react": "^0.503.0",
-    "mysql2": "^3.24.6",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "resend": "^6.37.0",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {

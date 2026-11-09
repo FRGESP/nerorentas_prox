@@ -112,8 +112,7 @@ Todos empiezan con **30 días de prueba gratis, sin tarjeta**.
 - **Qué se anuncia:** el **lanzamiento de Nerorentas**; la plataforma aún no abre al público.
 - **Fecha:** sin fecha comprometida → siempre "**Muy pronto**". No poner fechas ni cuentas regresivas.
 - **Tipo de página:** una sola pantalla en **modo oscuro**, centrada en el título "Próximamente" y un **campo de correo** ("Avísame"), seguida de una franja con tipos de inmueble y la línea de tiempo "Un mes con Nerorentas". Sin enlaces a login ni a "Crear cuenta" (el sistema todavía no está abierto).
-- **Campo de correo:** guarda los correos en la tabla `Lista_de_Espera` de la base MySQL de rentas, vía `POST /api/lista-espera` → `CALL SP_AÑADIR_LISTA(correo)`. Cada correo se registra una sola vez; si ya estaba, se le dice al visitante. Script de la tabla y el SP: `docs/lista-espera.sql`.
-- **Base de datos:** hoy es la de prueba en `localhost`. Para publicar la página en internet, la base tiene que ser accesible desde el servidor donde se aloje (las credenciales van en `.env.local`, que no se sube a git).
+- **Campo de correo:** guarda cada correo como contacto en Resend (segmento "Lista de espera") vía `POST /api/lista-espera`, y a los registros nuevos les manda un correo de confirmación. Cada correo se registra una sola vez; si ya estaba, se le dice al visitante y no se le vuelve a escribir. El anuncio del lanzamiento se manda desde Broadcasts de Resend a ese segmento.
 - **Sin prueba social inventada:** no poner contadores tipo "4.5k personas registradas" hasta tener números reales.
 - **Tiempo verbal:** futuro o presente de intención ("podrás", "recibirá", "estamos por lanzar").
 - **Cifras:** no usar las de "Cifras que ya usa la landing" (cobrado, unidades administradas): no encajan con un producto que aún no lanza. Los números de la vista previa del panel son ilustrativos.

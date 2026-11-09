@@ -1,6 +1,6 @@
 # CLAUDE.md — Página "Próximamente" de Nerorentas
 
-Página de marketing **independiente** del sistema de rentas. Una sola página (landing de "Próximamente"), sin sesiones y sin pagos. Su único acceso a datos es la lista de espera: `src/app/api/lista-espera/route.ts` usa el pool de `src/lib/db.ts` (`mysql2`, credenciales `SQL_*` en `.env.local`) y llama a `SP_AÑADIR_LISTA` (RES 0 = registrado, 1 = ya estaba). Script en `docs/lista-espera.sql`. Todo el texto de UI va en **español de México**, con trato de **tú**.
+Página de marketing **independiente** del sistema de rentas. Una sola página (landing de "Próximamente"), sin sesiones y sin pagos. Su único acceso a datos es la lista de espera: `src/app/api/lista-espera/route.ts` guarda cada correo como contacto en **Resend** (SDK `resend`, variables `RESEND_API_KEY` y `RESEND_SEGMENT_ID` opcional en `.env.local`) y, solo si es nuevo, le manda la confirmación de `src/lib/correoConfirmacion.ts` desde `nerovant@contacto.nerovant.com` (respuestas a `nerovantstudio@gmail.com`). Límite de 5 intentos por IP por hora, en memoria. Todo el texto de UI va en **español de México**, con trato de **tú**.
 
 - **Qué es el producto, planes, funciones y tono:** leer `docs/contexto-producto.md` antes de escribir cualquier texto.
 - **Sistema real (solo consulta):** `C:\Users\ferna\Documents\DEV\rentas`. Si la sesión tiene esa carpeta agregada, se puede leer como referencia (en especial `src/components/landing/paginaPrincipal.tsx`, la landing actual). **Nunca editar archivos allá** desde este proyecto.
