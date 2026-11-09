@@ -1,0 +1,4 @@
+# Nixpacks instala Node 22.11; Tailwind 4 carga magic-string (solo ESM) con require(),
+# que en esa versión necesita esta bandera (a partir de 22.12 ya no).
+[variables]
+NODE_OPTIONS = "--experimental-require-module"
